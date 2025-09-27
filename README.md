@@ -38,7 +38,8 @@ Before diving into practical implementation, it's essential to understand the fu
 
 The testbench is a critical component in the verification process that validates the functionality of digital designs. Understanding its architecture is fundamental to successful RTL verification.
 
-![Testbench Architecture](screenshots/theory_01_testbench_architecture.png)
+<img width="1919" height="1079" alt="Screenshot 2025-09-21 215854" src="https://github.com/user-attachments/assets/dbfa3393-d501-4a5e-9951-659d2993d36f" />
+
 
 #### Testbench Components
 
@@ -70,7 +71,8 @@ This architecture ensures comprehensive verification while maintaining clear sep
 
 The simulation process using Icarus Verilog follows a systematic approach that transforms RTL designs and testbenches into executable simulations with waveform analysis capabilities.
 
-![Iverilog Simulation Flow](screenshots/theory_02_simulation_flow.png)
+<img width="1919" height="1079" alt="Screenshot 2025-09-21 220214" src="https://github.com/user-attachments/assets/487036dc-fa77-4d2e-aac4-30ae3479ea8a" />
+
 
 #### Four-Stage Simulation Process
 
@@ -149,7 +151,9 @@ cd vsdflow/
 git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 ```
 
-![Environment Setup - Terminal Session](screenshots/01_workspace_creation.png)
+<img width="1919" height="1079" alt="Screenshot 2025-09-21 225504" src="https://github.com/user-attachments/assets/44cd630b-a814-4938-9955-c375d1fc729a" />
+
+
 
 ### Repository Clone Results
 
@@ -176,8 +180,8 @@ drwxrwxr-x 7 vsduser vsduser 4096 Sep 21 22:54 sky130RTLDesignAndSynthesisWorksh
 # Navigate into workshop directory
 cd sky130RTLDesignAndSynthesisWorkshop/
 ```
+<img width="1717" height="1012" alt="Screenshot 2025-09-21 225737" src="https://github.com/user-attachments/assets/f741c0cd-9c3b-4aa6-a019-1707ca3515e3" />
 
-![Repository Structure](screenshots/02_repository_clone.png)
 
 ## Workshop Repository Structure Analysis
 
@@ -197,7 +201,8 @@ DC_WORKSHOP  lib  my_lib  README.md  verilog_files  yosys_run.sh
 - **`yosys_run.sh`**: Synthesis automation script for later days
 - **`README.md`**: Workshop documentation
 
-![Workshop Directory Structure](screenshots/03_directory_analysis.png)
+<img width="1310" height="869" alt="Screenshot 2025-09-21 225802" src="https://github.com/user-attachments/assets/ad0ed1fb-340a-4ee5-a019-7dfc130fc4e1" />
+
 
 ## Library Files Investigation
 
@@ -218,6 +223,9 @@ cd verilog_model/
 vsduser@vsdsquadron:~/vsdflow/sky130RTLDesignAndSynthesisWorkshop/my_lib/verilog_model$ ls
 primitives.v  sky130_fd_sc_hd.v
 ```
+<img width="1366" height="883" alt="Screenshot 2025-09-21 230141" src="https://github.com/user-attachments/assets/99631bb8-90fd-4c94-971e-b1838717b188" />
+<img width="1305" height="864" alt="Screenshot 2025-09-21 231056" src="https://github.com/user-attachments/assets/148edfe3-b272-46d0-b6c1-118eddb95c73" />
+
 
 ### Library File Specifications
 
@@ -239,7 +247,7 @@ total 2328
    - **Size**: 2,327,999 bytes (2.33 MB)
    - **Purpose**: Complete Sky130 high-density standard cell behavioral models
 
-![Library Files Analysis](screenshots/04_library_investigation.png)
+<img width="1279" height="856" alt="Screenshot 2025-09-21 231330" src="https://github.com/user-attachments/assets/a90bc119-7e9b-497a-99b1-0a33fbd53268" />
 
 ### Technology Library Files
 
@@ -286,7 +294,8 @@ The verilog_files directory contains an extensive collection of RTL designs and 
 - Each design has an associated testbench (`tb_*.v`) for comprehensive verification
 - Examples: `tb_good_mux.v`, `tb_dff_asyncres_syncres.v`, etc.
 
-![Verilog Files Collection](screenshots/05_verilog_collection.png)
+<img width="1279" height="856" alt="Screenshot 2025-09-21 231330" src="https://github.com/user-attachments/assets/001c15ae-b206-4ebe-a58d-f49815ab4bd6" />
+
 
 ## Simulation Workflow Implementation
 
@@ -326,7 +335,10 @@ iverilog good_mux.v tb_good_mux.v
 VCD info: dumpfile tb_good_mux.vcd opened for output.
 ```
 
-![Simulation Process](screenshots/06_simulation_workflow.png)
+<img width="1361" height="871" alt="Screenshot 2025-09-21 232008" src="https://github.com/user-attachments/assets/6f703d3c-794d-4c37-81f4-a87db280a04d" />
+<img width="1296" height="869" alt="Screenshot 2025-09-21 232051" src="https://github.com/user-attachments/assets/3a4e045f-31b9-48dd-8d49-f511f2432dbf" />
+
+
 
 ### Good MUX RTL Design Analysis
 
@@ -343,6 +355,9 @@ module good_mux (input i0, input i1, input sel, output reg y);
     end
 endmodule
 ```
+<img width="1352" height="885" alt="Screenshot 2025-09-25 104724" src="https://github.com/user-attachments/assets/2073f0cf-46c6-4bb9-b1e2-d58a383ca3cc" />
+<img width="1353" height="877" alt="Screenshot 2025-09-25 104735" src="https://github.com/user-attachments/assets/38aed2b1-285e-4c69-a399-52fe8abd5b94" />
+
 
 ### Testbench Implementation Analysis
 
@@ -406,7 +421,8 @@ The GTKWave screenshots from the PDF show successful waveform generation with th
 - All signal transitions occur at expected time intervals
 - Multiplexer functionality verified across all input combinations
 
-![GTKWave Waveform Analysis](screenshots/07_gtkwave_analysis.png)
+<img width="1300" height="869" alt="Screenshot 2025-09-21 232652" src="https://github.com/user-attachments/assets/e612af9f-a3dc-4fc3-bac3-915942e75d9e" />
+
 
 ### Functional Verification Results
 
