@@ -1,4 +1,5 @@
-# RISC-V-Reference-SoC-Tapeout-Program_VLSI_Week
+# RISC-V SoC Tapeout Program - Week 1
+
 ## RTL Design and Simulation Fundamentals
 
 *Date: September 21, 2025*
@@ -6,15 +7,16 @@
 ## Table of Contents
 
 1. [Week 1 Overview](#week-1-overview)
-2. [Day 1: Environment Setup and RTL Analysis](#day-1-environment-setup-and-rtl-analysis)
-3. [Workspace Creation and Repository Setup](#workspace-creation-and-repository-setup)
-4. [Workshop Repository Structure Analysis](#workshop-repository-structure-analysis)
-5. [Library Files Investigation](#library-files-investigation)
-6. [RTL Design Collection Exploration](#rtl-design-collection-exploration)
-7. [Simulation Workflow Implementation](#simulation-workflow-implementation)
-8. [GTKWave Waveform Analysis](#gtkwave-waveform-analysis)
-9. [Week 1 Day 1 Accomplishments](#week-1-day-1-accomplishments)
-10. [Repository Structure and Screenshots](#repository-structure-and-screenshots)
+2. [RTL Design Theory and Concepts](#rtl-design-theory-and-concepts)
+3. [Day 1: Environment Setup and RTL Analysis](#day-1-environment-setup-and-rtl-analysis)
+4. [Workspace Creation and Repository Setup](#workspace-creation-and-repository-setup)
+5. [Workshop Repository Structure Analysis](#workshop-repository-structure-analysis)
+6. [Library Files Investigation](#library-files-investigation)
+7. [RTL Design Collection Exploration](#rtl-design-collection-exploration)
+8. [Simulation Workflow Implementation](#simulation-workflow-implementation)
+9. [GTKWave Waveform Analysis](#gtkwave-waveform-analysis)
+10. [Week 1 Day 1 Accomplishments](#week-1-day-1-accomplishments)
+11. [Repository Structure and Screenshots](#repository-structure-and-screenshots)
 
 ## Week 1 Overview
 
@@ -27,6 +29,96 @@ Week 1 of the RISC-V SoC Tapeout Program establishes fundamental RTL design and 
 - **Day 3** (Upcoming): Combinational and Sequential Optimizations
 - **Day 4** (Upcoming): Gate Level Simulation and Synthesis-Simulation Mismatch
 - **Day 5** (Upcoming): Design for Testability and If-Case Constructs
+
+## RTL Design Theory and Concepts
+
+Before diving into practical implementation, it's essential to understand the fundamental concepts of RTL design and verification methodology that form the backbone of digital VLSI design.
+
+### Testbench Architecture and Design
+
+The testbench is a critical component in the verification process that validates the functionality of digital designs. Understanding its architecture is fundamental to successful RTL verification.
+
+![Testbench Architecture](screenshots/theory_01_testbench_architecture.png)
+
+#### Testbench Components
+
+**Stimulus Generator:**
+- Generates input patterns and control signals for the Design Under Test (DUT)
+- Provides comprehensive test scenarios covering all functional requirements
+- Controls timing and sequencing of input stimuli
+
+**Design Under Test (DUT):**
+- The actual RTL module being verified and validated
+- Receives primary inputs from the stimulus generator
+- Produces primary outputs for observation and analysis
+
+**Stimulus Observer:**
+- Monitors and captures the output responses from the DUT
+- Compares actual results with expected behavior
+- Reports verification status and identifies any functional discrepancies
+
+#### Key Testbench Principles
+
+**Important Notes:**
+- Design may have 1 or more Primary Inputs and 1 or more Primary Outputs
+- Testbench (TB) does not have Primary inputs or Primary outputs
+- The testbench acts as a self-contained verification environment
+
+This architecture ensures comprehensive verification while maintaining clear separation between the design and its verification environment.
+
+### Icarus Verilog Simulation Flow
+
+The simulation process using Icarus Verilog follows a systematic approach that transforms RTL designs and testbenches into executable simulations with waveform analysis capabilities.
+
+![Iverilog Simulation Flow](screenshots/theory_02_simulation_flow.png)
+
+#### Four-Stage Simulation Process
+
+**Stage 1: Design and Testbench Input**
+- **Design Files**: RTL implementation in Verilog (.v files)
+- **Testbench Files**: Verification environment with stimulus generation
+- **Input Processing**: Both files are fed into the Icarus Verilog compiler
+
+**Stage 2: Iverilog Compilation**
+- **Compilation Process**: Iverilog processes the Verilog source code
+- **Syntax Checking**: Validates Verilog syntax and semantics
+- **Executable Generation**: Creates simulation executable for the target design
+
+**Stage 3: VCD File Generation**
+- **Simulation Execution**: Running the compiled executable
+- **Value Change Dump**: Generates comprehensive signal transition data
+- **Waveform Data**: All signal changes recorded in VCD format for analysis
+
+**Stage 4: GTKWave Waveform Analysis**
+- **Waveform Visualization**: GTKWave displays signal transitions graphically
+- **Timing Analysis**: Detailed examination of signal behavior over time
+- **Debugging Support**: Interactive waveform navigation and measurement tools
+
+#### Simulation Workflow Benefits
+
+**Professional Verification:**
+- Complete signal visibility for comprehensive debugging
+- Timing-accurate simulation results for design validation
+- Industry-standard VCD format for tool interoperability
+- Visual waveform analysis for intuitive design understanding
+
+This systematic approach ensures thorough verification of RTL designs with professional-grade analysis capabilities.
+
+### RTL Design and Verification Methodology
+
+The combination of proper testbench architecture and systematic simulation flow creates a robust verification environment essential for complex digital design projects.
+
+**Design Flow Integration:**
+- RTL design development follows structured coding practices
+- Testbench creation ensures comprehensive functional coverage
+- Simulation execution validates design behavior across all scenarios
+- Waveform analysis provides detailed insight into design operation
+
+**Quality Assurance:**
+- Systematic approach reduces verification time and effort
+- Visual analysis capabilities enhance debugging efficiency
+- Standardized flow ensures reproducible verification results
+- Professional tools provide industry-grade validation
 
 ## Day 1: Environment Setup and RTL Analysis
 
@@ -368,14 +460,16 @@ The waveform analysis confirms correct multiplexer operation:
 Week1-RISC-V-Tapeout-Program/
 ├── README.md                           # This comprehensive documentation
 ├── screenshots/                        # All PDF screenshots and images
-│   ├── 01_workspace_creation.png      # Initial environment setup
-│   ├── 02_repository_clone.png        # Git clone operation
-│   ├── 03_directory_analysis.png      # Workshop structure exploration
-│   ├── 04_library_investigation.png   # Sky130 library files
-│   ├── 05_verilog_collection.png      # RTL design library
-│   ├── 06_simulation_workflow.png     # Icarus Verilog simulation
-│   ├── 07_gtkwave_analysis.png        # Waveform analysis results
-│   └── original_screenshots.pdf       # Source PDF with all terminal sessions
+│   ├── theory_01_testbench_architecture.png    # Testbench theory diagram
+│   ├── theory_02_simulation_flow.png           # Iverilog simulation flow
+│   ├── 01_workspace_creation.png               # Initial environment setup
+│   ├── 02_repository_clone.png                 # Git clone operation
+│   ├── 03_directory_analysis.png               # Workshop structure exploration
+│   ├── 04_library_investigation.png            # Sky130 library files
+│   ├── 05_verilog_collection.png               # RTL design library
+│   ├── 06_simulation_workflow.png              # Icarus Verilog simulation
+│   ├── 07_gtkwave_analysis.png                 # Waveform analysis results
+│   └── original_screenshots.pdf                # Source PDF with all terminal sessions
 ├── rtl_designs/                        # Key RTL files analyzed
 │   ├── good_mux.v                     # Professional multiplexer design
 │   ├── tb_good_mux.v                  # Comprehensive testbench
@@ -395,18 +489,18 @@ Week1-RISC-V-Tapeout-Program/
 
 **Screenshot Placement in README:**
 
-1. **01_workspace_creation.png** - After "Workspace Creation and Repository Setup" section
-2. **02_repository_clone.png** - After "Repository Clone Results" subsection  
-3. **03_directory_analysis.png** - After "Top-Level Directory Contents" subsection
-4. **04_library_investigation.png** - After "Library File Specifications" subsection
-5. **05_verilog_collection.png** - After "Comprehensive Design Collection" subsection
-6. **06_simulation_workflow.png** - After "Successful Simulation Execution" subsection
-7. **07_gtkwave_analysis.png** - After "Waveform Analysis Results" subsection
+**Theory Section:**
+1. **theory_01_testbench_architecture.png** - After "Testbench Architecture and Design" heading
+2. **theory_02_simulation_flow.png** - After "Icarus Verilog Simulation Flow" heading
 
-**Screenshot Extraction from PDF:**
-- Extract individual terminal session screenshots from the provided PDF
-- Maintain original resolution and terminal text clarity
-- Organize chronologically following the Day 1 workflow sequence
+**Practical Implementation:**
+3. **01_workspace_creation.png** - After "Workspace Creation and Repository Setup" section
+4. **02_repository_clone.png** - After "Repository Clone Results" subsection  
+5. **03_directory_analysis.png** - After "Top-Level Directory Contents" subsection
+6. **04_library_investigation.png** - After "Library File Specifications" subsection
+7. **05_verilog_collection.png** - After "Comprehensive Design Collection" subsection
+8. **06_simulation_workflow.png** - After "Successful Simulation Execution" subsection
+9. **07_gtkwave_analysis.png** - After "Waveform Analysis Results" subsection
 
 ### Professional Documentation Standards
 
@@ -414,9 +508,11 @@ Week1-RISC-V-Tapeout-Program/
 - All commands and file listings match exactly with PDF screenshots
 - Directory structures precisely reflect actual workspace organization
 - File sizes and timestamps correspond to original terminal sessions
+- Theory diagrams provide foundational understanding before practical work
 
 **Educational Value:**
-- Progressive learning structure from environment setup to waveform analysis
+- Theory section establishes conceptual foundation
+- Progressive learning structure from concepts to implementation
 - Clear explanation of each step with rationale and expected outcomes
 - Professional troubleshooting documentation for tool installation issues
 
@@ -424,11 +520,12 @@ Week1-RISC-V-Tapeout-Program/
 - Demonstrates professional VLSI development practices
 - Shows competency with industry-standard open-source EDA tools
 - Establishes foundation for advanced tapeout program activities
+- Integrates theoretical knowledge with practical implementation
 
 ---
 
 **Week 1 Day 1 Status: COMPLETE**
 
-Successfully established professional VLSI development environment, analyzed comprehensive RTL design library, and implemented complete simulation workflow. Ready for Day 2: Logic Synthesis and Technology Mapping.
+Successfully established professional VLSI development environment, mastered fundamental RTL design theory, analyzed comprehensive RTL design library, and implemented complete simulation workflow. Ready for Day 2: Logic Synthesis and Technology Mapping.
 
-*This documentation represents the successful completion of Week 1 Day 1 activities in the RISC-V SoC Tapeout Program, demonstrating professional competency in RTL design fundamentals and simulation methodology.*
+*This documentation represents the successful completion of Week 1 Day 1 activities in the RISC-V SoC Tapeout Program, demonstrating professional competency in RTL design fundamentals, verification theory, and simulation methodology.*
